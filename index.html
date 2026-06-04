@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feel Good Fitness | Lake Town</title>
+    <title>Feel Good Fitness | Premium Gym</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -31,34 +31,28 @@
             background-color: #F0F1F0;
         }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-        /* Keep background text strictly behind and unselectable */
-        .bg-text {
-            z-index: 0;
-            pointer-events: none;
-            user-select: none;
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         }
     </style>
 </head>
-<body class="min-h-screen overflow-x-hidden text-brandDark font-sans relative">
+<body class="min-h-screen overflow-x-hidden text-brandDark font-sans">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-silver/90 backdrop-blur-md border-b border-white/50">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-silver/80 backdrop-blur-lg border-b border-white/60">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#home" class="flex items-center gap-2 text-xl font-display font-black tracking-tight z-50">
-                <svg class="w-6 h-6 text-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg>
+            <a href="#home" class="flex items-center gap-2 text-xl font-display font-black tracking-tight z-[60] relative">
+                <svg class="w-6 h-6 text-lime drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg>
                 <span>FeelGood<span class="font-medium text-gray-500">Fitness</span></span>
             </a>
 
             <!-- Desktop Links -->
             <div class="hidden lg:flex gap-10 font-medium text-sm text-gray-600">
-                <a href="#home" class="hover:text-lime font-bold transition">Home</a>
+                <a href="#home" class="hover:text-brandDark font-bold transition">Home</a>
                 <a href="#program" class="hover:text-brandDark transition">Program</a>
                 <a href="#pricing" class="hover:text-brandDark transition">Pricing</a>
                 <a href="#community" class="hover:text-brandDark transition">Community</a>
@@ -66,110 +60,116 @@
 
             <!-- Single Contact CTA Button -->
             <div class="hidden lg:flex">
-                <a href="#contact" class="px-6 py-2.5 rounded-full bg-brandDark text-lime text-sm font-bold hover:bg-lime hover:text-brandDark transition duration-300 shadow-md">
+                <a href="#contact" class="px-7 py-2.5 rounded-full bg-brandDark text-lime text-sm font-bold hover:bg-lime hover:text-brandDark transition duration-300 shadow-xl">
                     Contact Us
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="lg:hidden z-50 p-2 text-brandDark">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <button id="mobile-menu-btn" class="lg:hidden z-[60] relative p-2 text-brandDark outline-none focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full bg-white h-screen flex flex-col items-center justify-center gap-8 text-xl font-display font-bold z-40">
-            <a href="#home" class="mobile-link text-brandDark hover:text-lime">Home</a>
-            <a href="#program" class="mobile-link text-brandDark hover:text-lime">Program</a>
-            <a href="#pricing" class="mobile-link text-brandDark hover:text-lime">Pricing</a>
-            <a href="#community" class="mobile-link text-brandDark hover:text-lime">Community</a>
-            <a href="#contact" class="mobile-link bg-lime px-8 py-3 rounded-full text-brandDark mt-4">Contact Us</a>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-silver/95 backdrop-blur-xl flex flex-col items-center justify-center gap-10 text-2xl font-display font-bold z-50">
+            <a href="#home" class="mobile-link text-brandDark hover:text-lime tracking-wide">Home</a>
+            <a href="#program" class="mobile-link text-brandDark hover:text-lime tracking-wide">Program</a>
+            <a href="#pricing" class="mobile-link text-brandDark hover:text-lime tracking-wide">Pricing</a>
+            <a href="#community" class="mobile-link text-brandDark hover:text-lime tracking-wide">Community</a>
+            <a href="#contact" class="mobile-link bg-brandDark text-lime px-10 py-4 rounded-full mt-6 shadow-2xl text-xl">Contact Us</a>
         </div>
     </nav>
 
     <!-- 1. HERO SECTION -->
-    <section id="home" class="relative pt-28 pb-20 lg:pt-36 lg:pb-32 overflow-hidden w-full max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col items-center">
+    <section id="home" class="relative pt-24 md:pt-32 pb-20 w-full max-w-[1600px] mx-auto px-6 lg:px-12">
         
-        <!-- Background Text (Fixed to stay behind and scale properly) -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center bg-text flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 opacity-40 md:opacity-80">
-            <span class="text-[15vw] md:text-[12vw] font-display font-black text-gray-300 leading-none">NO PAIN</span>
-            <span class="text-[15vw] md:text-[12vw] font-display font-black text-lime leading-none">NO GAIN</span>
+        <!-- Background Text (Pinned to the top, safely away from paragraph text) -->
+        <div class="absolute top-28 md:top-36 left-0 w-full flex flex-col md:flex-row justify-center items-center gap-0 md:gap-6 z-0 pointer-events-none select-none px-4">
+            <span class="text-[22vw] md:text-[11vw] font-display font-black text-brandDark leading-[0.85] tracking-tighter opacity-90">NO PAIN</span>
+            <span class="text-[22vw] md:text-[11vw] font-display font-black text-lime leading-[0.85] tracking-tighter">NO GAIN</span>
         </div>
 
         <!-- Content Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 w-full z-10 relative mt-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 relative z-10 mt-64 md:mt-24 lg:mt-32 items-start">
             
-            <!-- Left Info -->
-            <div class="lg:col-span-3 flex flex-col justify-center order-2 lg:order-1 items-center lg:items-start text-center lg:text-left">
-                <p class="text-gray-700 leading-relaxed mb-8 max-w-sm font-medium">
+            <!-- Left Info (Pushed down below the NO PAIN text on desktop) -->
+            <div class="lg:col-span-3 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-8 lg:mt-28">
+                <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-8 max-w-sm font-medium">
                     Ready to transform your body? Join a FREE class today and experience personalized training designed for all fitness levels. No commitments, just results!
                 </p>
-                <a href="#contact" class="bg-gradient-to-r from-brandDark to-gray-800 text-lime px-8 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl transition w-full md:w-auto text-center">
+                <a href="#contact" class="bg-brandDark text-lime px-8 py-4 rounded-full font-bold shadow-xl hover:bg-lime hover:text-brandDark transition duration-300 w-full lg:w-max text-center">
                     Join Free Class
                 </a>
                 
                 <!-- Rating Card -->
-                <div class="glass-panel p-6 rounded-3xl mt-10 w-full max-w-xs flex items-center justify-between">
+                <div class="glass-panel p-5 rounded-[2rem] mt-10 w-full max-w-[280px] flex items-center justify-between">
                     <div>
                         <h2 class="text-4xl font-display font-black">4.8★</h2>
                         <p class="text-[10px] font-bold tracking-widest text-gray-500 mt-1 uppercase">Google Rating</p>
                     </div>
                     <div class="flex -space-x-3">
-                        <div class="w-10 h-10 rounded-full bg-blue-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">JD</div>
-                        <div class="w-10 h-10 rounded-full bg-purple-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">SM</div>
-                        <div class="w-10 h-10 rounded-full bg-lime border-2 border-white flex items-center justify-center text-brandDark text-xl font-bold">+</div>
+                        <div class="w-10 h-10 rounded-full bg-blue-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold shadow-sm">JD</div>
+                        <div class="w-10 h-10 rounded-full bg-purple-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold shadow-sm">SM</div>
+                        <div class="w-10 h-10 rounded-full bg-lime border-2 border-white flex items-center justify-center text-brandDark text-xl font-bold shadow-sm">+</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Center Image -->
-            <div class="lg:col-span-6 flex justify-center items-end relative order-1 lg:order-2">
-                <div class="w-full max-w-md lg:max-w-lg relative">
+            <!-- Center Image (Pulled up slightly to overlap the text) -->
+            <div class="lg:col-span-6 order-1 lg:order-2 -mt-20 md:-mt-10 lg:-mt-16 relative flex justify-center w-full">
+                <div class="w-full max-w-[360px] md:max-w-md lg:max-w-[480px] relative drop-shadow-2xl">
+                    
                     <!-- Main rounded image -->
-                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="Man lifting weights" class="w-full h-auto rounded-[2.5rem] shadow-2xl object-cover aspect-[4/5] border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="Man lifting weights" class="w-full h-auto rounded-[3rem] object-cover aspect-[4/5] border-[6px] border-white">
                     
                     <!-- Floating Glass Box -->
-                    <div class="absolute -bottom-6 md:-bottom-10 left-1/2 -translate-x-1/2 w-[90%] glass-panel rounded-3xl p-6 text-center shadow-lg">
-                        <button class="absolute -top-6 left-1/2 -translate-x-1/2 bg-lime text-brandDark px-6 py-2 rounded-full font-bold shadow-md flex items-center gap-2 hover:bg-brandDark hover:text-lime transition whitespace-nowrap">
-                            Start Your Journey <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </button>
-                        <p class="mt-4 text-xs md:text-sm text-gray-800 font-medium">Take the first step towards a healthier, stronger you. Begin now and unlock your potential.</p>
+                    <div class="absolute -bottom-8 md:-bottom-12 left-1/2 -translate-x-1/2 w-[90%] glass-panel rounded-3xl p-6 md:p-8 text-center pt-10 shadow-2xl">
+                        <!-- Floating Button -->
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-max">
+                            <a href="#pricing" class="bg-lime text-brandDark px-6 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 hover:bg-brandDark hover:text-lime transition duration-300">
+                                Start Your Journey <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
+                        <p class="text-xs md:text-sm text-gray-800 font-medium leading-relaxed">Take the first step towards a healthier, stronger you. Begin now and unlock your potential.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Info -->
-            <div class="lg:col-span-3 flex flex-col justify-center items-center lg:items-end order-3 text-center lg:text-right mt-12 lg:mt-0">
+            <!-- Right Info (Pushed down below the NO GAIN text on desktop) -->
+            <div class="lg:col-span-3 order-3 flex flex-col items-center lg:items-end text-center lg:text-right mt-16 lg:mt-24">
+                
                 <!-- Diet Element -->
                 <div class="flex flex-col items-center">
-                    <div class="w-40 h-40 rounded-full glass-panel flex items-center justify-center relative p-2">
+                    <div class="w-40 h-40 md:w-48 md:h-48 rounded-full glass-panel flex items-center justify-center relative p-2 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80" alt="Healthy Diet" class="w-full h-full rounded-full object-cover">
                         <!-- Up Arrow -->
-                        <div class="absolute -bottom-8">
+                        <div class="absolute -bottom-6 bg-white rounded-full p-1 shadow-md">
                             <svg class="w-6 h-6 text-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
                         </div>
                     </div>
-                    <h3 class="text-xl font-display font-bold mt-10">Join and Get Our<br>Expert Diet</h3>
+                    <h3 class="text-xl md:text-2xl font-display font-bold mt-8">Join and Get Our<br>Expert Diet</h3>
                 </div>
 
                 <!-- Members Card -->
-                <div class="glass-panel p-6 rounded-3xl mt-10 w-full max-w-xs flex items-center justify-between lg:justify-end gap-6">
+                <div class="glass-panel p-5 rounded-[2rem] mt-10 w-full max-w-[280px] flex items-center justify-between lg:justify-end gap-6">
                     <div class="text-left lg:text-right">
                         <h2 class="text-4xl font-display font-black">280+</h2>
                         <p class="text-[10px] font-bold tracking-widest text-gray-500 mt-1 uppercase">Happy Members</p>
                     </div>
                     <div class="flex -space-x-3 flex-row-reverse space-x-reverse">
-                        <div class="w-10 h-10 rounded-full bg-black border-2 border-white flex items-center justify-center text-white text-lg font-bold">↗</div>
-                        <div class="w-10 h-10 rounded-full bg-pink-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">AL</div>
-                        <div class="w-10 h-10 rounded-full bg-cyan-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">SA</div>
+                        <div class="w-10 h-10 rounded-full bg-brandDark border-2 border-white flex items-center justify-center text-lime text-lg font-bold shadow-sm">↗</div>
+                        <div class="w-10 h-10 rounded-full bg-pink-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold shadow-sm">AL</div>
+                        <div class="w-10 h-10 rounded-full bg-cyan-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold shadow-sm">SA</div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- 2. PROGRAM SECTION -->
-    <section id="program" class="py-20 bg-white">
+    <section id="program" class="py-24 bg-white mt-12 md:mt-0">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="text-center mb-16">
                 <h2 class="text-sm font-bold text-lime tracking-widest uppercase mb-2">Our Capabilities</h2>
@@ -178,154 +178,155 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-silver rounded-3xl p-8 hover:bg-brandDark hover:text-white transition duration-300 group">
-                    <div class="w-14 h-14 bg-white text-brandDark rounded-full flex items-center justify-center mb-6 group-hover:bg-lime">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <div class="bg-silver rounded-[2rem] p-8 hover:bg-brandDark hover:text-white transition duration-500 group shadow-sm hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-white text-brandDark rounded-full flex items-center justify-center mb-6 group-hover:bg-lime group-hover:scale-110 transition duration-500 shadow-md">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
                     <h4 class="text-2xl font-display font-bold mb-4">Strength Training</h4>
-                    <p class="text-gray-500 group-hover:text-gray-300 mb-6">Fully equipped free-weight zone with modern Viva Fitness machines to build muscle.</p>
-                    <a href="#contact" class="font-bold flex items-center gap-2 group-hover:text-lime">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+                    <p class="text-gray-500 group-hover:text-gray-300 mb-8 leading-relaxed">Fully equipped free-weight zone with modern Viva Fitness machines to build muscle.</p>
+                    <a href="#contact" class="font-bold flex items-center gap-2 group-hover:text-lime uppercase text-sm tracking-wide">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-silver rounded-3xl p-8 hover:bg-brandDark hover:text-white transition duration-300 group">
-                    <div class="w-14 h-14 bg-white text-brandDark rounded-full flex items-center justify-center mb-6 group-hover:bg-lime">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <div class="bg-silver rounded-[2rem] p-8 hover:bg-brandDark hover:text-white transition duration-500 group shadow-sm hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-white text-brandDark rounded-full flex items-center justify-center mb-6 group-hover:bg-lime group-hover:scale-110 transition duration-500 shadow-md">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                     </div>
                     <h4 class="text-2xl font-display font-bold mb-4">Cardio & Endurance</h4>
-                    <p class="text-gray-500 group-hover:text-gray-300 mb-6">Top-of-the-line treadmills and ellipticals to boost your stamina and burn calories.</p>
-                    <a href="#contact" class="font-bold flex items-center gap-2 group-hover:text-lime">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+                    <p class="text-gray-500 group-hover:text-gray-300 mb-8 leading-relaxed">Top-of-the-line treadmills and ellipticals to boost your stamina and burn calories.</p>
+                    <a href="#contact" class="font-bold flex items-center gap-2 group-hover:text-lime uppercase text-sm tracking-wide">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-silver rounded-3xl p-8 hover:bg-brandDark hover:text-white transition duration-300 group">
-                    <div class="w-14 h-14 bg-white text-brandDark rounded-full flex items-center justify-center mb-6 group-hover:bg-lime">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="bg-silver rounded-[2rem] p-8 hover:bg-brandDark hover:text-white transition duration-500 group shadow-sm hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-white text-brandDark rounded-full flex items-center justify-center mb-6 group-hover:bg-lime group-hover:scale-110 transition duration-500 shadow-md">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
                     <h4 class="text-2xl font-display font-bold mb-4">Personal Training</h4>
-                    <p class="text-gray-500 group-hover:text-gray-300 mb-6">Work 1-on-1 with our expert trainers to get customized workout and diet plans.</p>
-                    <a href="#contact" class="font-bold flex items-center gap-2 group-hover:text-lime">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+                    <p class="text-gray-500 group-hover:text-gray-300 mb-8 leading-relaxed">Work 1-on-1 with our expert trainers to get customized workout and diet plans.</p>
+                    <a href="#contact" class="font-bold flex items-center gap-2 group-hover:text-lime uppercase text-sm tracking-wide">Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 3. PRICING SECTION -->
-    <section id="pricing" class="py-20 bg-brandDark text-white">
+    <section id="pricing" class="py-24 bg-brandDark text-white">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="text-center mb-16">
                 <h2 class="text-sm font-bold text-lime tracking-widest uppercase mb-2">Join The Club</h2>
                 <h3 class="text-4xl md:text-5xl font-display font-black uppercase">Membership Plans</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
                 <!-- Monthly -->
-                <div class="border border-gray-700 rounded-3xl p-8 text-center flex flex-col">
-                    <h4 class="text-xl font-bold mb-2 text-gray-300">Monthly</h4>
+                <div class="border border-gray-700 rounded-[2rem] p-8 text-center flex flex-col bg-brandDark">
+                    <h4 class="text-xl font-bold mb-2 text-gray-300 uppercase tracking-wide">Monthly</h4>
                     <div class="text-4xl font-display font-black mb-6">₹1,500<span class="text-sm font-normal text-gray-500">/mo</span></div>
                     <ul class="text-gray-400 space-y-4 mb-8 flex-1">
                         <li>Full Gym Access</li>
                         <li>Standard Equipment</li>
                         <li>Locker Facility</li>
                     </ul>
-                    <a href="#contact" class="border border-white py-3 rounded-full hover:bg-white hover:text-brandDark transition font-bold">Choose Plan</a>
+                    <a href="#contact" class="border border-gray-600 py-3 rounded-full hover:border-white hover:bg-white hover:text-brandDark transition font-bold">Choose Plan</a>
                 </div>
                 <!-- Yearly (Highlighted) -->
-                <div class="bg-lime text-brandDark rounded-3xl p-8 text-center transform md:-translate-y-4 shadow-2xl flex flex-col relative">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-brandDark text-lime text-xs font-bold px-4 py-1 rounded-b-lg">MOST POPULAR</div>
-                    <h4 class="text-xl font-bold mb-2 mt-4">Yearly</h4>
+                <div class="bg-lime text-brandDark rounded-[2rem] p-10 text-center transform md:-translate-y-4 shadow-2xl flex flex-col relative border-4 border-lime">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brandDark text-lime text-xs font-bold px-6 py-1.5 rounded-full uppercase tracking-widest shadow-md">MOST POPULAR</div>
+                    <h4 class="text-xl font-bold mb-2 mt-2 uppercase tracking-wide">Yearly</h4>
                     <div class="text-5xl font-display font-black mb-6">₹12,000<span class="text-sm font-normal text-gray-700">/yr</span></div>
                     <ul class="text-gray-800 space-y-4 mb-8 font-medium flex-1">
                         <li>Full Gym Access</li>
                         <li>Premium Viva Fitness Gear</li>
                         <li>Free Diet Consultation</li>
-                        <li>2 Months Free Equivalent</li>
+                        <li class="font-bold">Save ₹6,000 yearly</li>
                     </ul>
-                    <a href="#contact" class="bg-brandDark text-white py-3 rounded-full hover:bg-gray-800 transition font-bold">Choose Plan</a>
+                    <a href="#contact" class="bg-brandDark text-lime py-4 rounded-full hover:bg-gray-800 shadow-xl transition font-bold text-lg">Choose Plan</a>
                 </div>
                 <!-- Quarterly -->
-                <div class="border border-gray-700 rounded-3xl p-8 text-center flex flex-col">
-                    <h4 class="text-xl font-bold mb-2 text-gray-300">Quarterly</h4>
+                <div class="border border-gray-700 rounded-[2rem] p-8 text-center flex flex-col bg-brandDark">
+                    <h4 class="text-xl font-bold mb-2 text-gray-300 uppercase tracking-wide">Quarterly</h4>
                     <div class="text-4xl font-display font-black mb-6">₹4,000<span class="text-sm font-normal text-gray-500">/3mo</span></div>
                     <ul class="text-gray-400 space-y-4 mb-8 flex-1">
                         <li>Full Gym Access</li>
                         <li>Standard Equipment</li>
                         <li>Locker Facility</li>
                     </ul>
-                    <a href="#contact" class="border border-white py-3 rounded-full hover:bg-white hover:text-brandDark transition font-bold">Choose Plan</a>
+                    <a href="#contact" class="border border-gray-600 py-3 rounded-full hover:border-white hover:bg-white hover:text-brandDark transition font-bold">Choose Plan</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 4. COMMUNITY / REVIEWS SECTION -->
-    <section id="community" class="py-20 bg-silver">
+    <section id="community" class="py-24 bg-silver">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
             <h2 class="text-sm font-bold text-lime tracking-widest uppercase mb-2">Testimonials</h2>
             <h3 class="text-4xl md:text-5xl font-display font-black text-brandDark uppercase mb-16">What Our Members Say</h3>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Review 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-left relative">
-                    <div class="text-lime flex gap-1 mb-4">★★★★★</div>
-                    <p class="text-gray-600 mb-6 italic">"Best gym in Lake Town! The equipment is top-notch and the trainers are incredibly helpful. Great atmosphere to work out in."</p>
-                    <h4 class="font-bold text-brandDark">- Payel B.</h4>
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition duration-300 text-left relative border border-gray-100">
+                    <div class="text-lime flex gap-1 mb-6 text-xl">★★★★★</div>
+                    <p class="text-gray-600 mb-8 italic leading-relaxed">"Best gym in Lake Town! The equipment is top-notch and the trainers are incredibly helpful. Great atmosphere to work out in."</p>
+                    <h4 class="font-bold text-brandDark font-display tracking-wide uppercase">- Payel B.</h4>
                 </div>
                 <!-- Review 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-left relative">
-                    <div class="text-lime flex gap-1 mb-4">★★★★★</div>
-                    <p class="text-gray-600 mb-6 italic">"Very spacious and clean. They have all the latest Viva Fitness machines. I love the vibe and energy here."</p>
-                    <h4 class="font-bold text-brandDark">- Tanmay B.</h4>
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition duration-300 text-left relative border border-gray-100">
+                    <div class="text-lime flex gap-1 mb-6 text-xl">★★★★★</div>
+                    <p class="text-gray-600 mb-8 italic leading-relaxed">"Very spacious and clean. They have all the latest Viva Fitness machines. I love the vibe and energy here."</p>
+                    <h4 class="font-bold text-brandDark font-display tracking-wide uppercase">- Tanmay B.</h4>
                 </div>
                 <!-- Review 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-left relative">
-                    <div class="text-lime flex gap-1 mb-4">★★★★★</div>
-                    <p class="text-gray-600 mb-6 italic">"Amazing experience. The diet plan provided by the experts actually worked for me. Highly recommend joining!"</p>
-                    <h4 class="font-bold text-brandDark">- Rahul S.</h4>
+                <div class="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition duration-300 text-left relative border border-gray-100">
+                    <div class="text-lime flex gap-1 mb-6 text-xl">★★★★★</div>
+                    <p class="text-gray-600 mb-8 italic leading-relaxed">"Amazing experience. The diet plan provided by the experts actually worked for me. Highly recommend joining!"</p>
+                    <h4 class="font-bold text-brandDark font-display tracking-wide uppercase">- Rahul S.</h4>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 5. CONTACT / LOCATION SECTION -->
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-24 bg-white">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div class="bg-silverDark rounded-[3rem] overflow-hidden flex flex-col lg:flex-row shadow-2xl">
                 
                 <!-- Contact Info -->
                 <div class="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-brandDark text-white">
-                    <h3 class="text-4xl font-display font-black uppercase mb-6">Get In Touch</h3>
-                    <p class="text-gray-400 mb-10">Drop by the gym for a tour, or give us a call to ask about our membership plans.</p>
+                    <h3 class="text-4xl md:text-5xl font-display font-black uppercase mb-6">Get In Touch</h3>
+                    <p class="text-gray-400 mb-10 text-lg">Drop by the gym for a tour, or give us a call to ask about our membership plans.</p>
                     
-                    <div class="space-y-6 mb-10">
-                        <div class="flex items-start gap-4">
-                            <div class="bg-lime/20 p-3 rounded-full text-lime">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div class="space-y-8 mb-12">
+                        <div class="flex items-start gap-5">
+                            <div class="bg-lime/20 p-4 rounded-full text-lime">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Location</h4>
-                                <p class="text-gray-400 mt-1">P, 711, Lake Town Rd, Block A,<br>Kolkata, West Bengal 700089</p>
+                                <h4 class="font-bold text-xl mb-1 text-white">Location</h4>
+                                <p class="text-gray-400 leading-relaxed">P, 711, Lake Town Rd, Block A,<br>Kolkata, West Bengal 700089</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-lime/20 p-3 rounded-full text-lime">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <div class="flex items-center gap-5">
+                            <div class="bg-lime/20 p-4 rounded-full text-lime">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Call Us</h4>
-                                <p class="text-gray-400 mt-1 font-display tracking-wider text-xl">098317 20700</p>
+                                <h4 class="font-bold text-xl mb-1 text-white">Call Us</h4>
+                                <p class="text-lime font-display tracking-wider text-xl font-bold">098317 20700</p>
                             </div>
                         </div>
                     </div>
 
-                    <a href="https://maps.app.goo.gl/6YajNfeE8JFHCg4N8" target="_blank" class="bg-lime text-brandDark px-8 py-4 rounded-full font-bold text-center hover:bg-white transition w-max">
+                    <a href="https://maps.app.goo.gl/6YajNfeE8JFHCg4N8" target="_blank" class="bg-lime text-brandDark px-8 py-4 rounded-full font-bold text-center hover:bg-white transition w-full sm:w-max uppercase tracking-wide">
                         Open in Google Maps
                     </a>
                 </div>
 
                 <!-- Map Embed -->
                 <div class="lg:w-1/2 min-h-[400px] relative">
+                    <!-- Added styling to the map to fit the theme -->
                     <iframe 
                         src="https://maps.google.com/maps?q=Feel%20Good%20Fitness%20Lake%20Town%20Kolkata&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                        class="absolute inset-0 w-full h-full border-0 grayscale" 
+                        class="absolute inset-0 w-full h-full border-0 grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition duration-500" 
                         allowfullscreen="" 
                         loading="lazy">
                     </iframe>
@@ -335,32 +336,39 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brandDark py-8 border-t border-gray-800 text-center">
+    <footer class="bg-brandDark py-10 border-t border-gray-800 text-center">
+        <div class="flex justify-center items-center gap-2 text-xl font-display font-black tracking-tight mb-4 opacity-50">
+            <svg class="w-5 h-5 text-lime drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg>
+            <span class="text-white">FeelGood<span class="text-gray-500">Fitness</span></span>
+        </div>
         <p class="text-gray-500 text-sm font-medium">&copy; 2024 Feel Good Fitness. All rights reserved.</p>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Bug-Free Mobile Menu Script -->
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const links = document.querySelectorAll('.mobile-link');
 
-        // Toggle menu
+        // Toggle menu function
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
-            // Change icon based on state
+            document.body.classList.toggle('overflow-hidden'); // Prevent background scrolling
+            
+            // Change icon to X when open
             if(menu.classList.contains('hidden')) {
-                btn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
+                btn.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
             } else {
-                btn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+                btn.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
             }
         });
 
-        // Close menu when clicking a link
+        // Close menu cleanly when clicking any link inside it
         links.forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
-                btn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
+                document.body.classList.remove('overflow-hidden');
+                btn.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
             });
         });
     </script>
