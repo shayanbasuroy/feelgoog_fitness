@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feel Good Fitness</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat for bold displays, Inter for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lime: '#C6F027', /* Bright lime green from your image */
+                        brandDark: '#1E2319',
+                        silver: '#E4E5E4'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            /* Smooth silver gradient background */
+            background: radial-gradient(circle at top, #ffffff 0%, #d4d6d6 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden text-brandDark relative flex flex-col font-sans">
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center py-6 px-6 lg:px-16 w-full max-w-[1600px] mx-auto z-50 relative">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 text-xl font-display font-black tracking-tight">
+            <svg class="w-6 h-6 text-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg>
+            <span>FeelGood<span class="font-medium text-gray-600">Fitness</span></span>
+        </div>
+
+        <!-- Desktop Links -->
+        <div class="hidden lg:flex gap-10 font-medium text-sm text-gray-600">
+            <a href="#" class="text-lime font-bold">Home</a>
+            <a href="#" class="hover:text-brandDark transition">Program</a>
+            <a href="#" class="hover:text-brandDark transition">Pricing</a>
+            <a href="#" class="hover:text-brandDark transition">Community</a>
+        </div>
+
+        <!-- Single Contact CTA Button -->
+        <div class="hidden md:flex">
+            <a href="tel:+919831720700" class="px-8 py-3 rounded-full bg-brandDark text-lime text-sm font-bold hover:bg-lime hover:text-brandDark transition duration-300 shadow-lg">
+                Contact Us
+            </a>
+        </div>
+
+        <!-- Mobile Menu Icon -->
+        <div class="md:hidden">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </div>
+    </nav>
+
+    <!-- Main Hero Content -->
+    <!-- Used standard padding and relative positioning so it scales nicely on mobile -->
+    <main class="flex-1 w-full max-w-[1600px] mx-auto px-6 lg:px-16 pt-10 pb-20 relative flex flex-col justify-center">
+
+        <!-- HUGE BACKGROUND TEXT -->
+        <div class="absolute top-[10%] left-0 w-full flex justify-center z-0 pointer-events-none select-none overflow-hidden opacity-90">
+            <h1 class="text-[18vw] lg:text-[13vw] font-display font-black leading-none tracking-tighter uppercase whitespace-nowrap drop-shadow-sm mix-blend-multiply text-gray-300/80">
+                NO PAIN <span class="text-lime mix-blend-normal opacity-80">NO GAIN</span>
+            </h1>
+        </div>
+
+        <!-- Responsive Grid: Stacks on mobile, 3-columns on desktop -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center relative z-10 w-full mt-10 lg:mt-0">
+            
+            <!-- LEFT COLUMN (Text, CTA, Stats) -->
+            <div class="lg:col-span-3 flex flex-col gap-10 order-2 lg:order-1 text-center lg:text-left">
+                
+                <div class="max-w-sm mx-auto lg:mx-0">
+                    <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-6 font-medium">
+                        Ready to transform your body? Join a FREE class today and experience personalized training designed for all fitness levels. No commitments, just results!
+                    </p>
+                    
+                    <button class="w-full lg:w-auto bg-gradient-to-r from-brandDark via-brandDark to-lime text-white px-8 py-4 rounded-full text-sm font-bold shadow-xl hover:shadow-2xl transition-all duration-300">
+                        Join Free Class
+                    </button>
+                </div>
+                
+                <div class="bg-white/30 p-6 rounded-2xl glass-panel max-w-xs mx-auto lg:mx-0 mt-4 lg:mt-10">
+                    <h2 class="text-4xl lg:text-5xl font-display font-black tracking-tight mb-2">4.8★</h2>
+                    <div class="flex items-center justify-center lg:justify-start gap-4">
+                        <p class="text-[10px] md:text-xs font-bold tracking-widest uppercase text-gray-600 leading-tight">Google<br>Rating</p>
+                        <div class="flex -space-x-3">
+                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://ui-avatars.com/api/?name=John+Doe&background=random" alt="user">
+                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://ui-avatars.com/api/?name=Jane+Smith&background=random" alt="user">
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-lime flex items-center justify-center font-bold text-sm text-brandDark shadow-sm">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CENTER COLUMN (Main Image & Floating Box) -->
+            <div class="lg:col-span-6 flex flex-col items-center justify-center relative order-1 lg:order-2 w-full">
+                
+                <!-- Main Image inside a modern container to guarantee it loads and looks perfect -->
+                <div class="w-full max-w-md lg:max-w-lg aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white relative z-10">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1000&q=80" alt="Fitness Training" class="w-full h-full object-cover">
+                </div>
+
+                <!-- OVERLAPPING BOTTOM GLASS BOX -->
+                <div class="w-[90%] max-w-[450px] glass-panel p-6 md:p-8 pt-10 md:pt-12 rounded-[2rem] text-center relative z-20 -mt-16 mx-auto">
+                    
+                    <!-- Floating CTA Button inside the box -->
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-max">
+                        <button class="bg-lime text-brandDark px-6 py-3 rounded-full font-bold shadow-xl flex items-center gap-2 hover:bg-brandDark hover:text-lime transition duration-300">
+                            Start Your Journey 
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+
+                    <p class="mt-2 text-xs md:text-sm text-gray-800 font-medium leading-relaxed">
+                        Take the first step towards a healthier, stronger you. Begin now and unlock your potential.
+                    </p>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN (Diet Element, Stats) -->
+            <div class="lg:col-span-3 flex flex-col items-center lg:items-end gap-10 order-3 text-center lg:text-right mt-10 lg:mt-0">
+                
+                <!-- Salad Bowl / Diet Feature -->
+                <div class="flex flex-col items-center group cursor-pointer">
+                    <div class="w-40 h-40 md:w-48 md:h-48 rounded-full glass-panel flex flex-col items-center justify-center relative mb-4 transition-transform duration-300 group-hover:scale-105">
+                        <!-- SVG Hearts -->
+                        <div class="absolute top-4 flex gap-2">
+                            <svg class="w-5 h-5 text-lime fill-current drop-shadow" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            <svg class="w-4 h-4 text-lime fill-current drop-shadow -mt-2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+                        
+                        <!-- High Quality Standard Image masked into a circle -->
+                        <div class="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden shadow-lg z-10 border-2 border-white">
+                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover" alt="Diet Plan Salad">
+                        </div>
+                        
+                        <!-- SVG Up Arrow -->
+                        <div class="absolute -bottom-6">
+                            <svg class="w-6 h-6 text-lime font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-display font-bold mt-6 leading-tight">Join and Get Our<br>Expert Diet</h3>
+                </div>
+
+                <!-- Right Stats -->
+                <div class="bg-white/30 p-6 rounded-2xl glass-panel max-w-xs mx-auto lg:mx-0 mt-4 lg:mt-10">
+                    <h2 class="text-4xl lg:text-5xl font-display font-black tracking-tight mb-2">280+</h2>
+                    <div class="flex items-center justify-center lg:justify-end gap-4">
+                        <p class="text-[10px] md:text-xs font-bold tracking-widest uppercase text-gray-600 leading-tight text-right">Happy<br>Members</p>
+                        <div class="flex -space-x-3 flex-row-reverse space-x-reverse">
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-black text-white flex items-center justify-center font-bold text-sm hover:bg-lime hover:text-black transition cursor-pointer z-10 shadow-sm">↗</div>
+                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://ui-avatars.com/api/?name=Alex&background=random" alt="user">
+                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://ui-avatars.com/api/?name=Sam&background=random" alt="user">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
